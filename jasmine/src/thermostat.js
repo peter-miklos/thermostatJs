@@ -8,5 +8,8 @@ function Thermostat() {
 Thermostat.prototype = {
   checkTemperature: function() {
     return this.currentTemperature;
+  },
+  increaseTemperature: function() {
+    this.currentTemperature++;
   }
 }
