@@ -1,11 +1,11 @@
 "use strict";
 
 function Thermostat() {
-  const _START_TEMPERATURE = 20;
+  this._START_TEMPERATURE = 20;
   this._MIN_TEMPERATURE = 10;
   this._PSM_MAX_TEMPERATURE = 25;
   this._MAX_TEMPERATURE = 32;
-  this.currentTemperature = _START_TEMPERATURE;
+  this.currentTemperature = this._START_TEMPERATURE;
   this.powerSavingMode = true;
 };
 
@@ -41,5 +41,19 @@ Thermostat.prototype = {
   },
   turnOnPowerSavingMode: function() {
     this.powerSavingMode = true;
+  },
+  resetTemperature: function() {
+    this.currentTemperature = this._START_TEMPERATURE;
+  },
+  checkEnergyUsage: function() {
+    if (this.checkTemperature() <18) {
+      return "Green";
+    }
+    else if (this.checkTemperature() <25) {
+      return "Yellow";
+    }
+    else {
+      return "Red";
+    }
   }
 };

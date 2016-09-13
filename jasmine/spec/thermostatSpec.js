@@ -37,6 +37,11 @@ describe("Thermostat", function() {
       thermostat.decreaseTemperature();
       expect(thermostat.checkTemperature()).toEqual(19);
     })
+    it("resets the temperature to _START_TEMPERATURE", function() {
+      thermostat.increaseTemperature();
+      thermostat.resetTemperature();
+      expect(thermostat.checkTemperature()).toEqual(20);
+    })
   });
 
   describe("handling power saving mode", function() {
@@ -58,5 +63,29 @@ describe("Thermostat", function() {
       }
       expect(thermostat.checkTemperature()).toEqual(25);
     })
-  })
+  });
+
+  describe("#checkEnergyUsage", function() {
+    it("displays green if temperature is <18 degrees", function() {
+      for(let i = 0; i < 3; i++) {
+        thermostat.decreaseTemperature();
+      }
+        expect(thermostat.checkEnergyUsage()).toEqual("Green");
+    })
+    it("displays yellow if temperature is between 18 and 24 degrees", function() {
+      for(let i = 0; i < 3; i++) {
+        thermostat.decreaseTemperature();
+      }
+      for (let i = 0; i < 7; i++) {
+        thermostat.increaseTemperature();
+        expect(thermostat.checkEnergyUsage()).toEqual("Yellow");
+      }
+    })
+    it("displays red if temperature is >25 degrees", function() {
+      for(let i = 0; i < 5; i++) {
+        thermostat.increaseTemperature();
+      }
+        expect(thermostat.checkEnergyUsage()).toEqual("Red");
+    })
+  });
 });
