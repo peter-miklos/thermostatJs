@@ -84,7 +84,7 @@ describe("Thermostat", function() {
       for(let i = 0; i < 3; i++) {
         thermostat.decreaseTemperature();
       }
-        expect(thermostat.checkEnergyUsage()).toEqual("Green");
+        expect(thermostat.checkEnergyUsage()).toEqual("e-green");
     })
     it("displays yellow if temperature is between 18 and 24 degrees", function() {
       for(let i = 0; i < 3; i++) {
@@ -92,14 +92,14 @@ describe("Thermostat", function() {
       }
       for (let i = 0; i < 7; i++) {
         thermostat.increaseTemperature();
-        expect(thermostat.checkEnergyUsage()).toEqual("Yellow");
+        expect(thermostat.checkEnergyUsage()).toEqual("e-yellow");
       }
     })
     it("displays red if temperature is >25 degrees", function() {
       for(let i = 0; i < 5; i++) {
         thermostat.increaseTemperature();
       }
-        expect(thermostat.checkEnergyUsage()).toEqual("Red");
+        expect(thermostat.checkEnergyUsage()).toEqual("e-red");
     })
   });
 });

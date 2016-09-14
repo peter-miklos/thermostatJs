@@ -55,13 +55,13 @@ Thermostat.prototype = {
   },
   checkEnergyUsage: function() {
     if (this.checkTemperature() <18) {
-      return "Green";
+      return "e-green";
     }
     else if (this.checkTemperature() <25) {
-      return "Yellow";
+      return "e-yellow";
     }
     else {
-      return "Red";
+      return "e-red";
     }
   }
 };
