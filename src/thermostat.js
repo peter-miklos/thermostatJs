@@ -34,11 +34,14 @@ Thermostat.prototype = {
     return this.checkTemperature() === this._MIN_TEMPERATURE;
   },
   isPowerSavingModeOn: function() {
-    if (this.powerSavingMode === true) {
-      return "on";
+    return this.powerSavingMode;
+  },
+  getPowerSavingModeStatus: function() {
+    if (this.isPowerSavingModeOn() === true) {
+      return "on"
     }
     else {
-      return "off";
+      return "off"
     }
   },
   turnOffPowerSavingMode: function() {

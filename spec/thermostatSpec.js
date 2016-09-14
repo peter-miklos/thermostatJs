@@ -44,14 +44,18 @@ describe("Thermostat", function() {
     })
   });
 
-  describe("handling power saving mode", function() {
+  describe("#isPowerSavingModeOn", function() {
     it("checks the power saving mode is on at start", function() {
       expect(thermostat.isPowerSavingModeOn()).toEqual(true);
     })
+  });
+  describe("#turnOffPowerSavingMode", function() {
     it("turns off the power saving mode", function() {
       thermostat.turnOffPowerSavingMode();
       expect(thermostat.isPowerSavingModeOn()).toEqual(false);
     })
+  });
+  describe("#turnOnPowerSavingMode", function() {
     it("turns on the power saving mode", function() {
       thermostat.turnOffPowerSavingMode();
       thermostat.turnOnPowerSavingMode();
@@ -62,6 +66,16 @@ describe("Thermostat", function() {
         thermostat.increaseTemperature();
       }
       expect(thermostat.checkTemperature()).toEqual(25);
+    })
+  });
+  describe("#getPowerSavingModeStatus", function() {
+    it("returns on if the power saving mode is turned off", function() {
+      thermostat.turnOffPowerSavingMode();
+      expect(thermostat.getPowerSavingModeStatus()).toEqual("off");
+    })
+    it("returns off if the power saving mode is turned off", function() {
+      thermostat.turnOffPowerSavingMode();
+      expect(thermostat.getPowerSavingModeStatus()).toEqual("off");
     })
   });
 
