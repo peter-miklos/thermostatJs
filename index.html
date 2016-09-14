@@ -3,22 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title>Thermostat</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" media="screen" title="no title">
   </head>
 
   <body>
-    <h1>Thermostat</h1>
-    <div class="current_temp">
-      Current Temperature:
-    </div>
-    <div class="power_mode">
-      Power Mode is:
-    </div>
-    <button type="button" name="button">Increase</button>
-    <button type="button" name="button">Decrease</button>
-    <button type="button" name="button">Reset</button>
-    <button type="button" name="button">Power Mode</button>
-    <script type="text/javascript" src="src/Thermostat.js">
+    <div class="row">
+      <div class="col-md-3 left">
 
-    </script>
+      </div>
+      <div class="col-md-6 middle">
+        <h1>Thermostat</h1>
+          <div class="current_temp">
+            Current Temperature: <div id="temp"></div>
+          </div>
+          <div class="power_saving">
+            Power Saving:
+          </div>
+          <button class="btn btn-warning" type="button" name="increase_btn">Increase</button>
+          <button class="btn btn-info" type="button" name="decrease_btn">Decrease</button>
+          <button class="btn btn-default" type="button" name="reset_btn">Reset</button>
+          <button class="btn btn-default" type="button" name="power_mode_btn">Power Mode</button>
+      </div>
+      <div class="col-md-3 right">
+
+      </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript" src="src/Thermostat.js"></script>
+    </div>
   </body>
 </html>
