@@ -1,5 +1,6 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require './app/models/thermostat'
 
 # later you'll need to require the models that are using DM to connect to your DB
 
