@@ -8,7 +8,7 @@ describe App do
   end
 
   it 'saves on post request' do
-    post '/thermostat', params = {appid:1, temperature:18, mode:'on', temperatureunit:'metric'}
+    post '/thermostat', params = {appid: 1, temperature: 18, mode: true, temperatureunit: 'metric'}
     expect(Thermostat.first.temperature).to equal(18)
   end
 

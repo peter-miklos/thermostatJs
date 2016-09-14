@@ -7,5 +7,5 @@ class Thermostat
   property :app_id, String
   property :temperature, Integer
   property :temperature_unit, String
-  property :mode, String
+  property :mode, Boolean
 end

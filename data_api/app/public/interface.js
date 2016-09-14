@@ -2,7 +2,8 @@
 
 $(document).ready(function() {
   var thermostat = new Thermostat();
-  updateTemperature();
+  loadTemperature();
+  setTimeout(function() {updateTemperature();}, 50);
   updateWeather();
 
   $("#temperature-up").click(function(){
@@ -55,9 +56,10 @@ $(document).ready(function() {
   });
 
   function updateTemperature() {
-    $('#temperature').text(thermostat.checkTemperature());
+    $('#temperature').text(thermostat.currentTemperature);
     $("#temperature").attr("class", thermostat.checkEnergyUsage());
     $("#power-saving-status").text(thermostat.getPowerSavingModeStatus());
+    $.post("http://localhost:9292/thermostat", {appid: 1, temperature: thermostat.checkTemperature(), mode: thermostat.isPowerSavingModeOn(), temperatureunit: "metric"});
   }
 
   function updateWeather() {
@@ -76,5 +78,10 @@ $(document).ready(function() {
     })
   }
 
-
+  function loadTemperature() {
+    $.get("http://localhost:9292/thermostat?appid=1", function(data) {
+      thermostat.currentTemperature = data.temperature,
+      thermostat.powerSavingMode = data.mode;
+    })
+  }
 });
