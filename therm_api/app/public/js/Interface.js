@@ -42,6 +42,7 @@ $( document ).ready(function() {
     $( document ).click(function(){
         $( "#temp" ).html(thermostat._currentTemp);
         $( ".power_saving" ).html("Power Saving: " + thermostat._powerSaving);
+        $.post("http://localhost:9292/thermostat", {temperature: thermostat._currentTemp, mode: thermostat._powerSaving});
 
         if (thermostat.indicator() === "green" ) {
           $( "#temp" ).css("color", "green");
