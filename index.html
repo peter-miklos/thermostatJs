@@ -10,20 +10,16 @@
   </head>
 
   <body>
+    <section class="container">
     <div class="row">
-      <div class="col-md-3 left">
-        <div id="weather_icon"></div>
-        <div id="full_location"></div>
-        <div id="temp_c"></div>
-        <div id="wind_mph"></div>
-        <div id="feelslike_c"></div>
-        <input type="text" id="city" placeholder="City">
-        <input type="text" id="country" placeholder="Country">
-        <button type="submit" id="weather_submit">Submit</button>
-
-        </div>
+      <div class="col-md-2 left">
       </div>
-      <div class="col-md-6 middle">
+      <div class="col-sm-4">
+        <div id="weather"></div>
+        <input type="text" id="city" placeholder="City">
+        <button class="btn btn-default" type="button" id="weather_submit">Submit</button>
+      </div>
+      <div class="col-md-5 middle">
         <h1>Thermostat</h1>
           <div class="current_temp">
             Current Temperature: <div id="temp"></div>
@@ -36,11 +32,11 @@
           <button class="btn btn-default" type="button" name="reset_btn">Reset</button>
           <button class="btn btn-default" type="button" name="power_mode_btn">Power Mode</button>
       </div>
-      <div class="col-md-3 right">
-
+      <div class="col-md-1 right">
       </div>
 
-        <script type="text/javascript" src="src/Thermostat.js"></script>
     </div>
+  </section>
+  <script type="text/javascript" src="src/Thermostat.js"></script>
   </body>
 </html>
